@@ -4,7 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MyResumeMakerAI | Resume Template + AI Builder</title>
-  <meta name="description" content="ATS-friendly resume template + AI builder. Instant access after purchase.">
+  <meta name="description" content="ATS-friendly resume template + AI builder. Instant access after purchase. Limited time discount.">
+
   <style>
     :root{
       --bg:#f6f7f9;
@@ -40,10 +41,7 @@
       display:flex;justify-content:space-between;align-items:center;
       padding:10px 0 16px;
     }
-    .brand{
-      font-weight:800;
-      letter-spacing:.2px;
-    }
+    .brand{font-weight:800;letter-spacing:.2px}
     .tag{
       font-size:13px;
       color:var(--muted);
@@ -52,6 +50,7 @@
       border-radius:999px;
       background:rgba(255,255,255,.7);
       backdrop-filter: blur(8px);
+      white-space:nowrap;
     }
 
     /* Hero */
@@ -73,13 +72,16 @@
       line-height:1.65;
       color:var(--muted);
     }
+
     .ctaRow{
       display:flex;
-      gap:12px;
+      gap:14px;
       justify-content:center;
+      align-items:center;
       flex-wrap:wrap;
       margin-bottom:18px;
     }
+
     .btn{
       display:inline-flex;
       align-items:center;
@@ -103,10 +105,39 @@
       backdrop-filter: blur(10px);
     }
     .btn:hover{transform: translateY(-1px)}
+
     .micro{
       font-size:13px;
       color:var(--muted);
       margin-top:10px;
+    }
+
+    /* Discount / Price block */
+    .priceBox{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding:6px 0;
+      min-width: 240px;
+    }
+    .priceLine{
+      font-size:14px;
+      color:#6b7280;
+    }
+    .oldPrice{
+      text-decoration: line-through;
+      opacity:.6;
+      margin-right:8px;
+    }
+    .saleTag{
+      color:#16a34a;
+      font-weight:800;
+    }
+    .underPrice{
+      font-size:13px;
+      color:#6b7280;
     }
 
     /* Background image stream */
@@ -166,10 +197,7 @@
     }
 
     /* Sections */
-    .section{
-      padding:34px 0 10px;
-      text-align:center;
-    }
+    .section{padding:34px 0 10px;text-align:center}
     .bullets{
       list-style:none;
       padding:0;margin:14px auto 0;
@@ -192,6 +220,7 @@
       h1{font-size:44px}
       .shot{height:140px}
       .hero{padding:56px 0 22px}
+      .priceBox{min-width:unset}
     }
   </style>
 </head>
@@ -213,13 +242,26 @@
       </p>
 
       <div class="ctaRow">
-        <a class="btn primary" href="https://payhip.com/b/AeoVP">Buy Now</a>
+        <!-- Price + Buy button -->
+        <div class="priceBox">
+          <div class="priceLine">
+            <span class="oldPrice">$9.99</span>
+            <span class="saleTag">50% discount</span>
+          </div>
+
+          <a class="btn primary" href="https://payhip.com/b/AeoVP">
+            Buy Now — $4.99
+          </a>
+
+          <div class="underPrice">Now only $4.99 for 30 days access</div>
+        </div>
+
         <a class="btn secondary" href="#details">What you get</a>
       </div>
 
       <div class="micro">Trusted by job seekers across the United States</div>
 
-      <!-- Background image stream (uses your images) -->
+      <!-- Background image stream -->
       <div class="streamWrap">
         <div class="streamMask">
           <div class="stream">
@@ -252,6 +294,7 @@
       <div class="ctaRow">
         <a class="btn primary" href="https://payhip.com/b/AeoVP">Get Instant Access</a>
       </div>
+      <div class="micro">Secure checkout • Instant delivery</div>
     </div>
 
     <footer>© 2026 MyResumeMakerAI</footer>
