@@ -1,301 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>MyResumeMakerAI | Resume Template + AI Builder</title>
-  <meta name="description" content="ATS-friendly resume template with AI editor to review and improve your CV.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MyResumeMakerAI — ATS Resume + AI Editor</title>
 
-  <style>
-    :root{
-      --bg:#f6f7f9;
-      --text:#0b0f1a;
-      --muted:#4b5563;
-      --border:rgba(15,23,42,.10);
-      --shadow: 0 18px 70px rgba(0,0,0,.10);
-    }
+<style>
+:root{
+  --bg:#f6f7fb;
+  --text:#0b0f1a;
+  --muted:#6b7280;
+}
 
-    *{box-sizing:border-box}
+*{
+  box-sizing:border-box;
+}
 
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
-      background: var(--bg);
-      color: var(--text);
-      overflow-x:hidden;
-    }
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Inter,Arial;
+  background:var(--bg);
+  color:var(--text);
+  overflow-x:hidden;
+}
 
-    .bgGlow{
-      position:fixed;
-      inset:-200px;
-      background:
-        radial-gradient(900px 500px at 15% 20%, rgba(0,0,0,.06), transparent 60%),
-        radial-gradient(800px 500px at 80% 25%, rgba(0,0,0,.05), transparent 60%);
-      z-index:-1;
-    }
 
-    .wrap{
-      max-width:1050px;
-      margin:0 auto;
-      padding:28px 22px;
-    }
+/* background image stream */
 
-    .topbar{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-    }
+.bgStream{
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  overflow:hidden;
+}
 
-    .brand{
-      font-weight:800;
-    }
+.bgStream img{
+  position:absolute;
+  width:520px;
+  opacity:.06;
+  animation:float 40s linear infinite;
+}
 
-    .tag{
-      font-size:13px;
-      color:var(--muted);
-      border:1px solid var(--border);
-      padding:8px 12px;
-      border-radius:999px;
-      background:white;
-    }
+.bgStream img:nth-child(1){top:5%; left:5%;}
+.bgStream img:nth-child(2){top:60%; left:70%;}
+.bgStream img:nth-child(3){top:30%; left:40%;}
+.bgStream img:nth-child(4){top:75%; left:20%;}
 
-    .hero{
-      text-align:center;
-      padding:70px 0 30px;
-    }
+@keyframes float{
+  from{ transform:translateY(0px);}
+  to{ transform:translateY(-120px);}
+}
 
-    h1{
-      font-size:56px;
-      margin-bottom:12px;
-    }
 
-    .lead{
-      font-size:18px;
-      color:var(--muted);
-      max-width:700px;
-      margin:0 auto 24px;
-    }
+/* layout */
 
-    .ctaRow{
-      display:flex;
-      justify-content:center;
-      gap:20px;
-      flex-wrap:wrap;
-    }
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:80px 20px;
+  text-align:center;
+}
 
-    .btn{
-      padding:14px 24px;
-      border-radius:14px;
-      text-decoration:none;
-      font-weight:700;
-      border:1px solid var(--border);
-    }
+h1{
+  font-size:48px;
+  margin-bottom:10px;
+}
 
-    .btn.primary{
-      background:#0b0f1a;
-      color:white;
-      box-shadow:0 20px 40px rgba(0,0,0,.2);
-    }
+.sub{
+  font-size:20px;
+  color:var(--muted);
+  margin-bottom:30px;
+}
 
-    .btn.secondary{
-      background:white;
-      color:black;
-    }
+.section{
+  margin-top:50px;
+}
 
-    .priceBox{
-      text-align:center;
-    }
+img.mainCV{
+  width:100%;
+  max-width:700px;
+  border-radius:12px;
+  box-shadow:0 30px 60px rgba(0,0,0,.15);
+}
 
-    .oldPrice{
-      text-decoration: line-through;
-      opacity:.5;
-      margin-right:6px;
-    }
 
-    .sale{
-      color:#16a34a;
-      font-weight:700;
-    }
+/* buttons */
 
-    .streamMask{
-      overflow:hidden;
-      border-radius:18px;
-      border:1px solid var(--border);
-      background:white;
-      margin-top:30px;
-    }
+.btn{
+  display:inline-block;
+  padding:18px 36px;
+  font-size:18px;
+  border-radius:14px;
+  text-decoration:none;
+  border:1px solid rgba(0,0,0,.15);
+  transition:.2s;
+}
 
-    .stream{
-      display:flex;
-      gap:20px;
-      padding:20px;
-      animation: scroll 30s linear infinite;
-      width:max-content;
-    }
+.btn.primary{
+  background:#0b0f1a;
+  color:white;
+  box-shadow:0 12px 28px rgba(0,0,0,.18);
+}
 
-    @keyframes scroll{
-      from{ transform:translateX(0);}
-      to{ transform:translateX(-50%);}
-    }
+.btn.primary:hover{
+  transform:translateY(-2px);
+}
 
-    .shot{
-      height:180px;
-      border-radius:14px;
-      box-shadow:0 15px 40px rgba(0,0,0,.15);
-    }
 
-    .section{
-      padding:40px 0;
-      text-align:center;
-    }
+/* pricing */
 
-    .bullets{
-      list-style:none;
-      padding:0;
-      color:var(--muted);
-      font-size:16px;
-    }
+.priceBox{
+  margin-top:20px;
+}
 
-    .bullets li{
-      margin:8px 0;
-    }
+.priceNote{
+  font-size:13px;
+  color:var(--muted);
+  margin-top:12px;
+  line-height:1.4;
+}
 
-    .previewImage{
-      width:100%;
-      max-width:720px;
-      border-radius:18px;
-      box-shadow:0 25px 70px rgba(0,0,0,.2);
-      transition:transform .3s ease;
-    }
+.ctaNote{
+  font-size:13px;
+  color:var(--muted);
+  margin-top:12px;
+  line-height:1.4;
+}
 
-    .previewImage:hover{
-      transform:scale(1.03);
-    }
 
-    footer{
-      text-align:center;
-      color:var(--muted);
-      padding:30px;
-    }
+/* footer */
 
-  </style>
+footer{
+  margin-top:80px;
+  font-size:14px;
+  color:var(--muted);
+}
+</style>
+
 </head>
-
 <body>
 
-<div class="bgGlow"></div>
 
-<div class="wrap">
+<!-- background images -->
 
-  <div class="topbar">
-    <div class="brand">MyResumeMakerAI</div>
-    <div class="tag">ATS-friendly • AI builder</div>
-  </div>
+<div class="bgStream">
 
+<img src="ATS_friendly.png">
+<img src="CV_editor.png">
+<img src="CV_table.png">
+<img src="cv_template_image.png">
 
-  <div class="hero">
-
-    <h1>Build Your Resume with AI</h1>
-
-    <p class="lead">
-      An ATS-friendly resume template with an AI editor to review and improve your CV.
-      Built for US job applications, helping you create a stronger and more professional resume.
-    </p>
+</div>
 
 
-    <div class="ctaRow">
 
-      <div class="priceBox">
+<div class="container">
 
-        <div>
-          <span class="oldPrice">$9.99</span>
-          <span class="sale">50% discount</span>
-        </div>
+<h1>Build Your Resume with AI</h1>
 
-        <a class="btn primary" href="https://payhip.com/b/AeoVP">
-          Buy Now — $4.99
-        </a>
-
-        <div style="font-size:13px;color:var(--muted);">
-          Now only $4.99 for 30 days access
-        </div>
-
-      </div>
-
-      <a class="btn secondary" href="#details">
-        What you get
-      </a>
-
-    </div>
+<div class="sub">
+An ATS-friendly resume template + an AI editor to review and improve your CV content and structure. Built for US job applications.
+</div>
 
 
-    <div class="streamMask">
-      <div class="stream">
+<!-- main buy -->
 
-        <img class="shot" src="ATS_friendly.png">
-        <img class="shot" src="CV_editor.png">
-        <img class="shot" src="cv_template_image.png">
-        <img class="shot" src="CV_table.png">
+<div class="priceBox">
 
-        <img class="shot" src="ATS_friendly.png">
-        <img class="shot" src="CV_editor.png">
-        <img class="shot" src="cv_template_image.png">
-        <img class="shot" src="CV_table.png">
+<a class="btn primary" href="https://payhip.com/b/AeoVP">
+Buy Now — $4.99
+</a>
 
-      </div>
-    </div>
+<div class="priceNote">
+50% discount — Now only $4.99 for 30 days access
+</div>
 
-  </div>
+</div>
 
 
-  <div class="section" id="details">
 
-    <ul class="bullets">
+<!-- preview section -->
 
-      <li>✓ ATS-friendly format recruiters love</li>
+<div class="section">
 
-      <li>✓ AI editor to review and improve your CV</li>
+<img src="cv_template_image.png" class="mainCV">
 
-      <li>✓ Clean professional layout</li>
-
-      <li>✓ Built for US job applications</li>
-
-    </ul>
-
-  </div>
+</div>
 
 
-  <!-- CV PREVIEW -->
-  <div class="section">
 
-    <h2>See the Resume Template</h2>
+<!-- final CTA -->
 
-    <p class="lead">
-      Clean, professional layout designed for modern hiring standards.
-    </p>
+<div class="section">
 
-    <img src="cv_template_image.png"
-         class="previewImage">
+<a class="btn primary" href="https://payhip.com/b/AeoVP">
+Get Instant Access — $4.99
+</a>
 
-  </div>
+<div class="ctaNote">
+Secure checkout • Instant delivery
+</div>
 
-
-  <div class="section">
-
-    <a class="btn primary" href="https://payhip.com/b/AeoVP">
-      Get Instant Access — $4.99
-    </a>
-
-    <div style="font-size:13px;color:var(--muted);margin-top:8px;">
-      Secure checkout • Instant delivery
-    </div>
-
-  </div>
+</div>
 
 
-  <footer>
-    © 2026 MyResumeMakerAI
-  </footer>
+<footer>
+© 2026 MyResumeMakerAI
+</footer>
 
 
 </div>
