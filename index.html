@@ -1,111 +1,244 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>MyResumeMakerAI | AI Resume Builder</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MyResumeMakerAI | ATS-Friendly Resume Builder + Template</title>
+  <meta name="description" content="Create a professional, ATS-friendly resume in minutes. Includes AI review + editor. Instant access after purchase.">
 
-<style>
+  <style>
+    :root{
+      --bg:#f8fafc;
+      --card:#ffffff;
+      --text:#0f172a;
+      --muted:#475569;
+      --border:#e2e8f0;
+      --shadow: 0 18px 50px rgba(15,23,42,.10);
+      --radius: 18px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Helvetica Neue", sans-serif;
+      background:var(--bg);
+      color:var(--text);
+    }
+    a{color:inherit}
+    .wrap{max-width:1100px;margin:0 auto;padding:24px}
+    .nav{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:10px 0 18px 0;
+    }
+    .brand{font-weight:800;letter-spacing:.2px}
+    .pill{
+      display:inline-flex;gap:10px;align-items:center;
+      padding:10px 14px;border:1px solid var(--border);border-radius:999px;background:#fff;
+      color:var(--muted);font-size:14px;
+    }
+    .hero{
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap:26px;
+      align-items:center;
+      padding:26px;
+      background:linear-gradient(180deg, #ffffff, #f8fafc);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow: var(--shadow);
+    }
+    h1{font-size:48px;line-height:1.05;margin:0 0 12px}
+    .lead{font-size:18px;color:var(--muted);margin:0 0 18px;line-height:1.6}
+    .ctaRow{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:14px 18px;border-radius:12px;
+      border:1px solid #0b1220;background:#0b1220;color:#fff;
+      text-decoration:none;font-weight:700;
+      box-shadow: 0 12px 30px rgba(11,18,32,.22);
+    }
+    .btn.secondary{
+      background:#fff;color:var(--text);
+      border:1px solid var(--border);
+      box-shadow:none;
+      font-weight:700;
+    }
+    .micro{font-size:13px;color:var(--muted);margin-top:10px}
+    .heroImg{
+      width:100%;
+      border-radius:16px;
+      border:1px solid var(--border);
+      box-shadow: 0 16px 40px rgba(15,23,42,.12);
+      display:block;
+    }
+    .grid3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:16px;
+      margin-top:18px;
+    }
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:16px;
+    }
+    .card h3{margin:0 0 6px;font-size:16px}
+    .card p{margin:0;color:var(--muted);line-height:1.5;font-size:14px}
+    .section{margin-top:28px}
+    .sectionHead{
+      display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;
+      margin:6px 0 12px;
+    }
+    .sectionHead h2{margin:0;font-size:26px}
+    .sectionHead span{color:var(--muted)}
+    .two{
+      display:grid;grid-template-columns: 1fr 1fr;gap:18px;
+    }
+    .imgCard img{
+      width:100%;
+      border-radius:16px;
+      border:1px solid var(--border);
+      display:block;
+    }
+    .steps{display:grid;gap:10px;margin-top:10px}
+    .step{
+      display:flex;gap:12px;align-items:flex-start;
+      padding:12px;border:1px solid var(--border);
+      border-radius:14px;background:#fff;
+    }
+    .num{
+      width:28px;height:28px;border-radius:10px;background:#0b1220;color:#fff;
+      display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;flex:0 0 auto;
+    }
+    footer{
+      margin:26px 0 10px;
+      color:var(--muted);font-size:13px;
+      display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;
+    }
 
-body{
-font-family:Arial;
-margin:0;
-background:#f8fafc;
-text-align:center;
-}
-
-.container{
-max-width:1000px;
-margin:auto;
-padding:60px 20px;
-}
-
-h1{
-font-size:48px;
-}
-
-.subtitle{
-font-size:22px;
-color:#555;
-margin-bottom:30px;
-}
-
-.button{
-display:inline-block;
-padding:16px 40px;
-background:black;
-color:white;
-text-decoration:none;
-border-radius:8px;
-font-size:20px;
-margin-top:20px;
-}
-
-.section{
-margin-top:80px;
-}
-
-.feature{
-font-size:18px;
-margin:10px;
-}
-
-img{
-max-width:100%;
-border-radius:10px;
-margin-top:30px;
-box-shadow:0 10px 30px rgba(0,0,0,0.1);
-}
-
-</style>
+    /* Mobile */
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr}
+      h1{font-size:38px}
+      .grid3{grid-template-columns:1fr}
+      .two{grid-template-columns:1fr}
+    }
+  </style>
 </head>
 
 <body>
+  <div class="wrap">
+    <div class="nav">
+      <div class="brand">MyResumeMakerAI</div>
+      <div class="pill">ATS-friendly • AI review • Instant access</div>
+    </div>
 
-<div class="container">
+    <!-- HERO -->
+    <div class="hero">
+      <div>
+        <h1>Build a Professional Resume with AI</h1>
+        <p class="lead">
+          Get an ATS-friendly resume template + an AI editor that helps you improve wording, structure, and impact.
+          Built for US job applications.
+        </p>
 
-<h1>Build Your Resume in Minutes with AI</h1>
+        <div class="ctaRow">
+          <a class="btn" href="https://payhip.com/b/AeoVP">Get Instant Access</a>
+          <a class="btn secondary" href="#preview">See Preview</a>
+        </div>
 
-<div class="subtitle">
-Create professional, ATS-optimized resumes for US jobs instantly.
-</div>
+        <div class="micro">Instant download • Works on desktop & mobile • Clean, professional layout</div>
 
-<a href="https://payhip.com/b/AeoVP" class="button">
-Get Instant Access
-</a>
+        <div class="grid3">
+          <div class="card">
+            <h3>ATS-Friendly</h3>
+            <p>Designed to pass screening systems with clean formatting.</p>
+          </div>
+          <div class="card">
+            <h3>AI Editor Included</h3>
+            <p>Get suggestions to improve bullet points and clarity.</p>
+          </div>
+          <div class="card">
+            <h3>Fast & Simple</h3>
+            <p>Buy → open the builder → export your resume.</p>
+          </div>
+        </div>
+      </div>
 
-<div class="section">
+      <div>
+        <img class="heroImg" src="ATS_friendly.png" alt="ATS-friendly resume template on laptop mockup" />
+      </div>
+    </div>
 
-<h2>Why Choose MyResumeMakerAI</h2>
+    <!-- HOW IT WORKS + BUILDER -->
+    <div class="section" id="how">
+      <div class="sectionHead">
+        <h2>How it works</h2>
+        <span>Simple steps to a job-ready resume</span>
+      </div>
 
-<div class="feature">✔ Built for US job applications</div>
-<div class="feature">✔ ATS-optimized format</div>
-<div class="feature">✔ Professional templates</div>
-<div class="feature">✔ Instant access after purchase</div>
+      <div class="two">
+        <div class="imgCard card">
+          <img src="CV_editor.png" alt="Resume builder editor with AI coach" />
+        </div>
 
-</div>
+        <div class="card">
+          <div class="steps">
+            <div class="step">
+              <div class="num">1</div>
+              <div>
+                <strong>Purchase access</strong>
+                <div class="micro">Secure checkout via Payhip.</div>
+              </div>
+            </div>
+            <div class="step">
+              <div class="num">2</div>
+              <div>
+                <strong>Use the AI builder</strong>
+                <div class="micro">Fill in your details and get AI improvements.</div>
+              </div>
+            </div>
+            <div class="step">
+              <div class="num">3</div>
+              <div>
+                <strong>Export and apply</strong>
+                <div class="micro">Download your resume and start applying today.</div>
+              </div>
+            </div>
+          </div>
 
-<div class="section">
+          <div style="margin-top:14px;">
+            <a class="btn" href="https://payhip.com/b/AeoVP">Buy Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
 
-<h2>Simple and Fast</h2>
+    <!-- PREVIEW -->
+    <div class="section" id="preview">
+      <div class="sectionHead">
+        <h2>Resume preview</h2>
+        <span>Clean layout recruiters love</span>
+      </div>
 
-<p>Buy access, open the builder, and create your resume in minutes.</p>
+      <div class="two">
+        <div class="imgCard card">
+          <img src="cv_template_image.png" alt="Resume template preview" />
+        </div>
+        <div class="imgCard card">
+          <img src="CV_table.png" alt="Printed resume on desk mockup" />
+        </div>
+      </div>
 
-<img src="https://dummyimage.com/800x450/ddd/000&text=Resume+Builder+Preview">
+      <div style="margin-top:16px;text-align:center;">
+        <a class="btn" href="https://payhip.com/b/AeoVP">Get Instant Access</a>
+      </div>
+    </div>
 
-</div>
-
-<div class="section">
-
-<h2>Start Now</h2>
-
-<a href="https://payhip.com/b/AeoVP" class="button">
-Buy Now
-</a>
-
-</div>
-
-</div>
-
+    <footer>
+      <div>© 2026 MyResumeMakerAI</div>
+      <div><a href="https://payhip.com/b/AeoVP">Checkout</a></div>
+    </footer>
+  </div>
 </body>
 </html>
