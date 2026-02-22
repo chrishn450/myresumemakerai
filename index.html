@@ -3,242 +3,258 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MyResumeMakerAI | ATS-Friendly Resume Builder + Template</title>
-  <meta name="description" content="Create a professional, ATS-friendly resume in minutes. Includes AI review + editor. Instant access after purchase.">
-
+  <title>MyResumeMakerAI | Resume Template + AI Builder</title>
+  <meta name="description" content="ATS-friendly resume template + AI builder. Instant access after purchase.">
   <style>
     :root{
-      --bg:#f8fafc;
-      --card:#ffffff;
-      --text:#0f172a;
-      --muted:#475569;
-      --border:#e2e8f0;
-      --shadow: 0 18px 50px rgba(15,23,42,.10);
-      --radius: 18px;
+      --bg:#f6f7f9;
+      --text:#0b0f1a;
+      --muted:#4b5563;
+      --border:rgba(15,23,42,.10);
+      --shadow: 0 18px 70px rgba(0,0,0,.10);
     }
     *{box-sizing:border-box}
     body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Helvetica Neue", sans-serif;
-      background:var(--bg);
-      color:var(--text);
-    }
-    a{color:inherit}
-    .wrap{max-width:1100px;margin:0 auto;padding:24px}
-    .nav{
-      display:flex;align-items:center;justify-content:space-between;
-      padding:10px 0 18px 0;
-    }
-    .brand{font-weight:800;letter-spacing:.2px}
-    .pill{
-      display:inline-flex;gap:10px;align-items:center;
-      padding:10px 14px;border:1px solid var(--border);border-radius:999px;background:#fff;
-      color:var(--muted);font-size:14px;
-    }
-    .hero{
-      display:grid;
-      grid-template-columns: 1.05fr .95fr;
-      gap:26px;
-      align-items:center;
-      padding:26px;
-      background:linear-gradient(180deg, #ffffff, #f8fafc);
-      border:1px solid var(--border);
-      border-radius:var(--radius);
-      box-shadow: var(--shadow);
-    }
-    h1{font-size:48px;line-height:1.05;margin:0 0 12px}
-    .lead{font-size:18px;color:var(--muted);margin:0 0 18px;line-height:1.6}
-    .ctaRow{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
-    .btn{
-      display:inline-flex;align-items:center;justify-content:center;
-      padding:14px 18px;border-radius:12px;
-      border:1px solid #0b1220;background:#0b1220;color:#fff;
-      text-decoration:none;font-weight:700;
-      box-shadow: 0 12px 30px rgba(11,18,32,.22);
-    }
-    .btn.secondary{
-      background:#fff;color:var(--text);
-      border:1px solid var(--border);
-      box-shadow:none;
-      font-weight:700;
-    }
-    .micro{font-size:13px;color:var(--muted);margin-top:10px}
-    .heroImg{
-      width:100%;
-      border-radius:16px;
-      border:1px solid var(--border);
-      box-shadow: 0 16px 40px rgba(15,23,42,.12);
-      display:block;
-    }
-    .grid3{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:16px;
-      margin-top:18px;
-    }
-    .card{
-      background:var(--card);
-      border:1px solid var(--border);
-      border-radius:16px;
-      padding:16px;
-    }
-    .card h3{margin:0 0 6px;font-size:16px}
-    .card p{margin:0;color:var(--muted);line-height:1.5;font-size:14px}
-    .section{margin-top:28px}
-    .sectionHead{
-      display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;
-      margin:6px 0 12px;
-    }
-    .sectionHead h2{margin:0;font-size:26px}
-    .sectionHead span{color:var(--muted)}
-    .two{
-      display:grid;grid-template-columns: 1fr 1fr;gap:18px;
-    }
-    .imgCard img{
-      width:100%;
-      border-radius:16px;
-      border:1px solid var(--border);
-      display:block;
-    }
-    .steps{display:grid;gap:10px;margin-top:10px}
-    .step{
-      display:flex;gap:12px;align-items:flex-start;
-      padding:12px;border:1px solid var(--border);
-      border-radius:14px;background:#fff;
-    }
-    .num{
-      width:28px;height:28px;border-radius:10px;background:#0b1220;color:#fff;
-      display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;flex:0 0 auto;
-    }
-    footer{
-      margin:26px 0 10px;
-      color:var(--muted);font-size:13px;
-      display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x:hidden;
     }
 
-    /* Mobile */
-    @media (max-width: 900px){
-      .hero{grid-template-columns:1fr}
-      h1{font-size:38px}
-      .grid3{grid-template-columns:1fr}
-      .two{grid-template-columns:1fr}
+    /* Soft background */
+    .bgGlow{
+      position:fixed;
+      inset:-200px;
+      background:
+        radial-gradient(900px 500px at 15% 20%, rgba(0,0,0,.06), transparent 60%),
+        radial-gradient(800px 500px at 80% 25%, rgba(0,0,0,.05), transparent 60%),
+        radial-gradient(900px 600px at 40% 90%, rgba(0,0,0,.04), transparent 65%);
+      pointer-events:none;
+      z-index:-3;
+    }
+
+    .wrap{max-width:1050px;margin:0 auto;padding:28px 22px}
+
+    .topbar{
+      display:flex;justify-content:space-between;align-items:center;
+      padding:10px 0 16px;
+    }
+    .brand{
+      font-weight:800;
+      letter-spacing:.2px;
+    }
+    .tag{
+      font-size:13px;
+      color:var(--muted);
+      border:1px solid var(--border);
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.7);
+      backdrop-filter: blur(8px);
+    }
+
+    /* Hero */
+    .hero{
+      text-align:center;
+      padding:70px 0 30px;
+      position:relative;
+    }
+    h1{
+      font-size:64px;
+      line-height:1.02;
+      margin:0 0 14px;
+      letter-spacing:-.8px;
+    }
+    .lead{
+      max-width:720px;
+      margin:0 auto 26px;
+      font-size:18px;
+      line-height:1.65;
+      color:var(--muted);
+    }
+    .ctaRow{
+      display:flex;
+      gap:12px;
+      justify-content:center;
+      flex-wrap:wrap;
+      margin-bottom:18px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:14px 22px;
+      border-radius:14px;
+      border:1px solid rgba(0,0,0,.12);
+      text-decoration:none;
+      font-weight:750;
+      transition:.15s transform ease, .15s opacity ease;
+    }
+    .btn.primary{
+      background:#0b0f1a;
+      color:#fff;
+      box-shadow: 0 18px 45px rgba(0,0,0,.22);
+      border-color: rgba(0,0,0,.22);
+    }
+    .btn.secondary{
+      background:rgba(255,255,255,.75);
+      color:var(--text);
+      backdrop-filter: blur(10px);
+    }
+    .btn:hover{transform: translateY(-1px)}
+    .micro{
+      font-size:13px;
+      color:var(--muted);
+      margin-top:10px;
+    }
+
+    /* Background image stream */
+    .streamWrap{
+      margin:28px auto 0;
+      max-width:1050px;
+      position:relative;
+    }
+    .streamMask{
+      border:1px solid var(--border);
+      border-radius:22px;
+      overflow:hidden;
+      background:rgba(255,255,255,.55);
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow);
+      position:relative;
+    }
+
+    /* subtle gradient fade left/right */
+    .streamMask:before,
+    .streamMask:after{
+      content:"";
+      position:absolute;top:0;bottom:0;width:90px;
+      z-index:2;pointer-events:none;
+    }
+    .streamMask:before{
+      left:0;
+      background: linear-gradient(to right, rgba(246,247,249,1), rgba(246,247,249,0));
+    }
+    .streamMask:after{
+      right:0;
+      background: linear-gradient(to left, rgba(246,247,249,1), rgba(246,247,249,0));
+    }
+
+    .stream{
+      display:flex;
+      gap:18px;
+      padding:18px 18px;
+      align-items:center;
+      width:max-content;
+      animation: scroll 28s linear infinite;
+    }
+    @keyframes scroll{
+      from{ transform: translateX(0); }
+      to{ transform: translateX(-50%); }
+    }
+
+    .shot{
+      height:170px;
+      width:auto;
+      border-radius:16px;
+      border:1px solid var(--border);
+      box-shadow: 0 12px 35px rgba(0,0,0,.10);
+      display:block;
+      object-fit: cover;
+      background:#fff;
+    }
+
+    /* Sections */
+    .section{
+      padding:34px 0 10px;
+      text-align:center;
+    }
+    .bullets{
+      list-style:none;
+      padding:0;margin:14px auto 0;
+      max-width:620px;
+      color:var(--muted);
+      font-size:16px;
+      line-height:1.8;
+    }
+    .bullets li{margin:6px 0}
+    .bullets b{color:var(--text)}
+
+    footer{
+      padding:30px 0 18px;
+      text-align:center;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    @media (max-width: 860px){
+      h1{font-size:44px}
+      .shot{height:140px}
+      .hero{padding:56px 0 22px}
     }
   </style>
 </head>
 
 <body>
+  <div class="bgGlow"></div>
+
   <div class="wrap">
-    <div class="nav">
+    <div class="topbar">
       <div class="brand">MyResumeMakerAI</div>
-      <div class="pill">ATS-friendly • AI review • Instant access</div>
+      <div class="tag">ATS-friendly • AI builder • Instant access</div>
     </div>
 
-    <!-- HERO -->
     <div class="hero">
-      <div>
-        <h1>Build a Professional Resume with AI</h1>
-        <p class="lead">
-          Get an ATS-friendly resume template + an AI editor that helps you improve wording, structure, and impact.
-          Built for US job applications.
-        </p>
+      <h1>Build Your Resume with AI</h1>
+      <p class="lead">
+        An ATS-friendly resume template + an AI editor to upgrade your bullet points and structure.
+        Built for US job applications. Instant access after purchase.
+      </p>
 
-        <div class="ctaRow">
-          <a class="btn" href="https://payhip.com/b/AeoVP">Get Instant Access</a>
-          <a class="btn secondary" href="#preview">See Preview</a>
-        </div>
-
-        <div class="micro">Instant download • Works on desktop & mobile • Clean, professional layout</div>
-
-        <div class="grid3">
-          <div class="card">
-            <h3>ATS-Friendly</h3>
-            <p>Designed to pass screening systems with clean formatting.</p>
-          </div>
-          <div class="card">
-            <h3>AI Editor Included</h3>
-            <p>Get suggestions to improve bullet points and clarity.</p>
-          </div>
-          <div class="card">
-            <h3>Fast & Simple</h3>
-            <p>Buy → open the builder → export your resume.</p>
-          </div>
-        </div>
+      <div class="ctaRow">
+        <a class="btn primary" href="https://payhip.com/b/AeoVP">Buy Now</a>
+        <a class="btn secondary" href="#details">What you get</a>
       </div>
 
-      <div>
-        <img class="heroImg" src="ATS_friendly.png" alt="ATS-friendly resume template on laptop mockup" />
-      </div>
-    </div>
+      <div class="micro">Trusted by job seekers across the United States</div>
 
-    <!-- HOW IT WORKS + BUILDER -->
-    <div class="section" id="how">
-      <div class="sectionHead">
-        <h2>How it works</h2>
-        <span>Simple steps to a job-ready resume</span>
-      </div>
+      <!-- Background image stream (uses your images) -->
+      <div class="streamWrap">
+        <div class="streamMask">
+          <div class="stream">
+            <!-- set A -->
+            <img class="shot" src="ATS_friendly.png" alt="Resume mockup on laptop" />
+            <img class="shot" src="CV_editor.png" alt="AI resume builder editor" />
+            <img class="shot" src="cv_template_image.png" alt="Resume template preview" />
+            <img class="shot" src="CV_table.png" alt="Printed resume mockup" />
 
-      <div class="two">
-        <div class="imgCard card">
-          <img src="CV_editor.png" alt="Resume builder editor with AI coach" />
-        </div>
-
-        <div class="card">
-          <div class="steps">
-            <div class="step">
-              <div class="num">1</div>
-              <div>
-                <strong>Purchase access</strong>
-                <div class="micro">Secure checkout via Payhip.</div>
-              </div>
-            </div>
-            <div class="step">
-              <div class="num">2</div>
-              <div>
-                <strong>Use the AI builder</strong>
-                <div class="micro">Fill in your details and get AI improvements.</div>
-              </div>
-            </div>
-            <div class="step">
-              <div class="num">3</div>
-              <div>
-                <strong>Export and apply</strong>
-                <div class="micro">Download your resume and start applying today.</div>
-              </div>
-            </div>
-          </div>
-
-          <div style="margin-top:14px;">
-            <a class="btn" href="https://payhip.com/b/AeoVP">Buy Now</a>
+            <!-- set B (duplicate for seamless loop) -->
+            <img class="shot" src="ATS_friendly.png" alt="" />
+            <img class="shot" src="CV_editor.png" alt="" />
+            <img class="shot" src="cv_template_image.png" alt="" />
+            <img class="shot" src="CV_table.png" alt="" />
           </div>
         </div>
       </div>
     </div>
 
-    <!-- PREVIEW -->
-    <div class="section" id="preview">
-      <div class="sectionHead">
-        <h2>Resume preview</h2>
-        <span>Clean layout recruiters love</span>
-      </div>
+    <div class="section" id="details">
+      <ul class="bullets">
+        <li>✓ <b>ATS-friendly</b> format recruiters and systems can read</li>
+        <li>✓ <b>AI editor included</b> for stronger wording and impact</li>
+        <li>✓ <b>Clean professional design</b> for US job applications</li>
+        <li>✓ <b>Instant access</b> right after purchase</li>
+      </ul>
+    </div>
 
-      <div class="two">
-        <div class="imgCard card">
-          <img src="cv_template_image.png" alt="Resume template preview" />
-        </div>
-        <div class="imgCard card">
-          <img src="CV_table.png" alt="Printed resume on desk mockup" />
-        </div>
-      </div>
-
-      <div style="margin-top:16px;text-align:center;">
-        <a class="btn" href="https://payhip.com/b/AeoVP">Get Instant Access</a>
+    <div class="section">
+      <div class="ctaRow">
+        <a class="btn primary" href="https://payhip.com/b/AeoVP">Get Instant Access</a>
       </div>
     </div>
 
-    <footer>
-      <div>© 2026 MyResumeMakerAI</div>
-      <div><a href="https://payhip.com/b/AeoVP">Checkout</a></div>
-    </footer>
+    <footer>© 2026 MyResumeMakerAI</footer>
   </div>
 </body>
 </html>
