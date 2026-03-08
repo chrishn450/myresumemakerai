@@ -1,429 +1,134 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI Resume Builder | Create an ATS-Friendly Resume in Minutes</title>
-  <meta name="description" content="Build an ATS-friendly resume in minutes with AI. Improve bullet points, tailor your CV, and export a clean professional resume for job applications." />
-  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
-  <meta name="keywords" content="AI resume builder, ATS resume builder, CV builder, resume generator, professional resume, resume editor" />
-  <link rel="canonical" href="https://www.myresumemakerai.com/" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Resume Builder – Create an ATS‑Friendly Resume in Minutes</title>
+<meta name="description" content="Create a professional ATS‑friendly resume with AI in minutes. Improve bullet points, sharpen wording, and build a job‑winning CV instantly.">
+<link rel="canonical" href="https://www.myresumemakerai.com/">
 
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="AI Resume Builder | Create an ATS-Friendly Resume in Minutes" />
-  <meta property="og:description" content="Create a professional ATS-friendly resume with AI. Improve bullet points, tailor your content, and export when you're ready." />
-  <meta property="og:url" content="https://www.myresumemakerai.com/" />
-  <meta property="og:site_name" content="MyResumeMakerAI" />
-  <meta property="og:image" content="https://www.myresumemakerai.com/cv_template_image.png" />
-
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="AI Resume Builder | Create an ATS-Friendly Resume in Minutes" />
-  <meta name="twitter:description" content="Build a clean, ATS-friendly resume with AI and improve your content for modern job applications." />
-  <meta name="twitter:image" content="https://www.myresumemakerai.com/cv_template_image.png" />
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "MyResumeMakerAI",
-    "applicationCategory": "BusinessApplication",
-    "operatingSystem": "Web",
-    "url": "https://www.myresumemakerai.com/",
-    "description": "AI resume builder for creating ATS-friendly resumes, improving bullet points, and exporting professional CVs.",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD"
-    }
-  }
-  </script>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Is the resume builder free to start?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. You can build and edit your resume for free, and only pay if you decide to unlock export access."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What makes a resume ATS-friendly?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "An ATS-friendly resume uses a clean structure, standard headings, and readable formatting so applicant tracking systems can parse skills and experience correctly."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Who is this resume builder for?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "It is useful for students, graduates, career changers, engineers, tech applicants, and professionals applying to modern employers."
-        }
-      }
-    ]
-  }
-  </script>
-
-  <style>
-    :root {
-      --bg: #ffffff;
-      --surface: #f7f8fb;
-      --text: #0f172a;
-      --muted: #475569;
-      --line: #e2e8f0;
-      --brand: #0f172a;
-      --accent: #2563eb;
-      --max: 1120px;
-      --radius: 18px;
-      --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
-    }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.65;
-    }
-    img { max-width: 100%; display: block; height: auto; }
-    a { color: inherit; }
-    .container { width: min(var(--max), calc(100% - 2rem)); margin: 0 auto; }
-    .badge {
-      display: inline-flex;
-      gap: .5rem;
-      align-items: center;
-      border: 1px solid var(--line);
-      background: #fff;
-      border-radius: 999px;
-      padding: .45rem .8rem;
-      font-size: .9rem;
-      color: var(--muted);
-    }
-    .section { padding: 4.5rem 0; }
-    .hero {
-      padding: 2rem 0 4rem;
-      background: linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
-    }
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 0 1.5rem;
-    }
-    .brand {
-      font-weight: 800;
-      text-decoration: none;
-      letter-spacing: -0.02em;
-    }
-    .nav-links {
-      display: flex;
-      gap: 1rem;
-      align-items: center;
-      color: var(--muted);
-      font-size: .95rem;
-    }
-    .nav-links a { text-decoration: none; }
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap: 2rem;
-      align-items: center;
-    }
-    h1, h2, h3 { line-height: 1.15; letter-spacing: -0.03em; margin: 0 0 1rem; }
-    h1 { font-size: clamp(2.3rem, 5vw, 4rem); max-width: 12ch; }
-    h2 { font-size: clamp(1.8rem, 3.2vw, 2.5rem); }
-    h3 { font-size: 1.25rem; }
-    p { margin: 0 0 1rem; color: var(--muted); }
-    .lead { font-size: 1.1rem; max-width: 58ch; }
-    .actions { display: flex; flex-wrap: wrap; gap: .9rem; margin: 1.5rem 0 1rem; }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: .55rem;
-      padding: .95rem 1.25rem;
-      border-radius: 12px;
-      text-decoration: none;
-      font-weight: 700;
-      border: 1px solid transparent;
-    }
-    .btn-primary { background: var(--brand); color: white; }
-    .btn-secondary { border-color: var(--line); background: white; }
-    .proof {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: .9rem;
-      margin-top: 1.5rem;
-    }
-    .proof-item, .card {
-      background: white;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
-    .proof-item { padding: 1rem; }
-    .hero-card { padding: 1rem; }
-    .hero-card img { border-radius: 14px; border: 1px solid var(--line); }
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1rem;
-    }
-    .card { padding: 1.3rem; }
-    .steps { counter-reset: step; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
-    .step { padding: 1.4rem; background: var(--surface); border-radius: var(--radius); border: 1px solid var(--line); }
-    .step::before {
-      counter-increment: step;
-      content: counter(step);
-      display: inline-grid;
-      place-items: center;
-      width: 2rem;
-      height: 2rem;
-      border-radius: 999px;
-      background: var(--brand);
-      color: white;
-      font-weight: 700;
-      margin-bottom: 1rem;
-    }
-    .feature-list {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: .9rem;
-      margin-top: 1rem;
-    }
-    .feature-list li {
-      list-style: none;
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: .95rem 1rem;
-      color: var(--text);
-    }
-    .showcase {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-      align-items: start;
-    }
-    .showcase .card { padding: 1rem; }
-    .faq { display: grid; gap: .9rem; }
-    details {
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 1rem 1.1rem;
-      background: white;
-    }
-    summary {
-      cursor: pointer;
-      font-weight: 700;
-      color: var(--text);
-    }
-    footer {
-      border-top: 1px solid var(--line);
-      padding: 2rem 0 3rem;
-      color: var(--muted);
-      font-size: .95rem;
-    }
-    .small { font-size: .95rem; }
-    .center { text-align: center; }
-    .mt-2 { margin-top: .75rem; }
-    .mt-3 { margin-top: 1rem; }
-    .mt-4 { margin-top: 1.4rem; }
-
-    @media (max-width: 900px) {
-      .hero-grid, .showcase, .steps, .grid-3, .proof, .feature-list {
-        grid-template-columns: 1fr;
-      }
-      .nav { gap: 1rem; flex-direction: column; align-items: flex-start; }
-      .nav-links { flex-wrap: wrap; }
-      h1 { max-width: 14ch; }
-    }
-  </style>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;margin:0;background:#f7f8fb;color:#1a1a1a}
+header{display:flex;justify-content:space-between;align-items:center;padding:20px 40px;background:white;border-bottom:1px solid #eee}
+nav a{margin-left:20px;text-decoration:none;color:#333;font-weight:500}
+.hero{display:flex;align-items:center;justify-content:space-between;padding:80px 10%;gap:60px}
+.hero h1{font-size:56px;margin-bottom:20px}
+.hero p{font-size:18px;line-height:1.6;color:#555}
+.cta{margin-top:30px}
+.btn{padding:14px 22px;border-radius:8px;text-decoration:none;font-weight:bold}
+.primary{background:#0f172a;color:white}
+.secondary{background:white;border:1px solid #ccc;color:#333;margin-left:10px}
+.section{padding:70px 10%;background:white}
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:30px}
+.feature{padding:20px;border:1px solid #eee;border-radius:10px;background:#fafafa}
+footer{padding:40px;text-align:center;background:#0f172a;color:white}
+h2{margin-bottom:20px}
+ul{line-height:1.8}
+</style>
 </head>
+
 <body>
-  <header class="hero">
-    <div class="container">
-      <nav class="nav" aria-label="Main navigation">
-        <a class="brand" href="https://www.myresumemakerai.com/">MyResumeMakerAI</a>
-        <div class="nav-links">
-          <a href="#how-it-works">How it works</a>
-          <a href="#features">Features</a>
-          <a href="#faq">FAQ</a>
-          <a class="btn btn-secondary" href="https://app.myresumemakerai.com/">Open app</a>
-        </div>
-      </nav>
 
-      <div class="hero-grid">
-        <div>
-          <span class="badge">ATS-friendly • AI resume builder • Export when ready</span>
-          <h1>Create a professional AI resume in minutes</h1>
-          <p class="lead">Build a clean, ATS-friendly resume with AI guidance. Improve bullet points, sharpen wording, and create a professional resume for internships, graduate roles, and experienced-job applications.</p>
-          <div class="actions">
-            <a class="btn btn-primary" href="https://app.myresumemakerai.com/">Start building for free</a>
-            <a class="btn btn-secondary" href="#preview">See template preview</a>
-          </div>
-          <p class="small">No credit card to start. Build and edit free. Pay only if you choose to unlock PDF or HTML export.</p>
+<header>
+<div><strong>MyResumeMakerAI</strong></div>
+<nav>
+<a href="#how">How it works</a>
+<a href="#features">Features</a>
+<a href="#faq">FAQ</a>
+<a href="/app">Open app</a>
+</nav>
+</header>
 
-          <div class="proof" aria-label="Key benefits">
-            <div class="proof-item"><strong>ATS-friendly</strong><br><span class="small">Clean structure recruiters and software can parse</span></div>
-            <div class="proof-item"><strong>AI editing</strong><br><span class="small">Improve clarity, wording, and impact</span></div>
-            <div class="proof-item"><strong>Fast to use</strong><br><span class="small">Create a resume in one focused session</span></div>
-            <div class="proof-item"><strong>Professional layout</strong><br><span class="small">Designed for modern applications</span></div>
-          </div>
-        </div>
+<section class="hero">
+<div>
+<h1>Build a professional resume with AI in minutes</h1>
+<p>Create a clean, ATS‑friendly resume with AI guidance. Improve bullet points, sharpen wording, and generate a professional CV in minutes.</p>
 
-        <aside class="hero-card card">
-          <img src="cv_template_image.png" alt="Preview of a clean ATS-friendly resume template created with MyResumeMakerAI" />
-          <p class="mt-3 small">A resume template designed for readability, strong scanning, and modern job applications.</p>
-        </aside>
-      </div>
-    </div>
-  </header>
+<div class="cta">
+<a class="btn primary" href="/app">Start building for free</a>
+<a class="btn secondary" href="#preview">See template preview</a>
+</div>
 
-  <main>
-    <section class="section" id="features">
-      <div class="container">
-        <div class="center">
-          <h2>Why job seekers use MyResumeMakerAI</h2>
-          <p class="lead" style="margin-inline:auto;">This page now targets the search terms people actually use: AI resume builder, ATS resume builder, resume editor, and CV generator. That helps both search visibility and conversion.</p>
-        </div>
-        <div class="grid-3 mt-4">
-          <article class="card">
-            <h3>ATS-friendly resume format</h3>
-            <p>Use a layout that avoids clutter and keeps your experience, skills, and education easy to scan for recruiters and applicant tracking systems.</p>
-          </article>
-          <article class="card">
-            <h3>AI bullet point improvement</h3>
-            <p>Turn weak job descriptions into clearer, stronger bullet points with action verbs and more relevant wording for the role you want.</p>
-          </article>
-          <article class="card">
-            <h3>Built for real applications</h3>
-            <p>Create resumes for internships, graduate schemes, engineering jobs, business roles, tech positions, and general professional applications.</p>
-          </article>
-        </div>
-      </div>
-    </section>
+<p style="margin-top:15px;color:#666;">No credit card required. Build and edit your resume for free.</p>
 
-    <section class="section" id="how-it-works" style="background: var(--surface);">
-      <div class="container">
-        <h2>How the AI resume builder works</h2>
-        <div class="steps mt-4">
-          <div class="step">
-            <h3>Add your experience</h3>
-            <p>Enter your work history, education, skills, projects, and certifications into the editor.</p>
-          </div>
-          <div class="step">
-            <h3>Improve with AI</h3>
-            <p>Use the AI editor to tighten wording, improve bullet points, and make the resume more job-relevant.</p>
-          </div>
-          <div class="step">
-            <h3>Export when ready</h3>
-            <p>Preview the final result, refine it, and unlock PDF or HTML export when you are happy with the content.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+</div>
 
-    <section class="section" id="preview">
-      <div class="container showcase">
-        <div>
-          <h2>Resume template preview</h2>
-          <p>MyResumeMakerAI focuses on a single clean resume format that works well for ATS screening and human review. That makes it easier to produce a polished result without spending hours tweaking layout settings.</p>
-          <ul class="feature-list">
-            <li>Standard headings for ATS parsing</li>
-            <li>Readable section structure</li>
-            <li>Professional spacing and hierarchy</li>
-            <li>Good fit for US, UK, and international applications</li>
-            <li>Useful for students and experienced professionals</li>
-            <li>Simple editing without design clutter</li>
-          </ul>
-          <div class="actions mt-4">
-            <a class="btn btn-primary" href="https://app.myresumemakerai.com/">Build your resume now</a>
-          </div>
-        </div>
-        <div class="card">
-          <img src="ATS_friendly.png" alt="ATS-friendly resume example layout" loading="lazy" />
-        </div>
-      </div>
-    </section>
+<div>
+<img src="resume-preview.png" style="max-width:380px;border-radius:10px;">
+</div>
+</section>
 
-    <section class="section" style="background: var(--surface);">
-      <div class="container">
-        <h2>Who this resume builder is for</h2>
-        <div class="grid-3 mt-4">
-          <article class="card">
-            <h3>Students and graduates</h3>
-            <p>Build a first professional resume for internships, part-time jobs, graduate programs, and entry-level roles.</p>
-          </article>
-          <article class="card">
-            <h3>Career changers</h3>
-            <p>Reframe transferable experience with stronger wording and clearer, more relevant bullet points.</p>
-          </article>
-          <article class="card">
-            <h3>Professionals updating old CVs</h3>
-            <p>Refresh outdated formatting and improve content so your resume looks current, focused, and easier to read.</p>
-          </article>
-        </div>
-      </div>
-    </section>
+<section class="section" id="features">
+<h2>Features</h2>
 
-    <section class="section">
-      <div class="container">
-        <h2>What makes an ATS-friendly resume?</h2>
-        <p>An ATS-friendly resume is designed so applicant tracking systems can read your information correctly before a recruiter ever opens the file. That usually means clear section headings, straightforward formatting, readable text, and strong content. MyResumeMakerAI is built around those principles so you can create a resume that is both software-friendly and recruiter-friendly.</p>
-        <p>A lot of job seekers lose time trying complex templates that look impressive but hurt readability. A simpler layout with strong bullet points usually performs better. That is why this AI resume builder emphasizes content quality, structure, and clarity over decorative design.</p>
-      </div>
-    </section>
+<div class="features">
+<div class="feature">
+<h3>ATS‑friendly resumes</h3>
+<p>Your resume is structured to pass applicant tracking systems used by companies.</p>
+</div>
 
-    <section class="section" id="faq">
-      <div class="container">
-        <h2>Frequently asked questions</h2>
-        <div class="faq mt-4">
-          <details open>
-            <summary>Is the resume builder free to start?</summary>
-            <p class="mt-2">Yes. You can build and edit your resume for free. Payment is only needed if you decide to unlock export access.</p>
-          </details>
-          <details>
-            <summary>Does this work for US and UK jobs?</summary>
-            <p class="mt-2">Yes. The resume format is designed to work well for US and UK job applications and is also suitable for many international roles.</p>
-          </details>
-          <details>
-            <summary>Can AI really improve my resume?</summary>
-            <p class="mt-2">AI can help improve wording, clarity, and relevance, especially for bullet points. You should still review the final text to make sure it accurately reflects your experience.</p>
-          </details>
-          <details>
-            <summary>Who should use MyResumeMakerAI?</summary>
-            <p class="mt-2">Students, graduates, engineers, business applicants, tech candidates, career changers, and professionals updating an older resume can all benefit from it.</p>
-          </details>
-        </div>
-      </div>
-    </section>
+<div class="feature">
+<h3>AI writing assistance</h3>
+<p>Improve bullet points, descriptions, and summaries automatically with AI.</p>
+</div>
 
-    <section class="section center" style="padding-top: 1rem;">
-      <div class="container card" style="padding: 2rem;">
-        <h2>Start building your resume for free</h2>
-        <p class="lead" style="margin-inline:auto;">Create a professional ATS-friendly resume, improve it with AI, and export when you are ready.</p>
-        <div class="actions" style="justify-content:center;">
-          <a class="btn btn-primary" href="https://app.myresumemakerai.com/">Open the resume builder</a>
-        </div>
-      </div>
-    </section>
-  </main>
+<div class="feature">
+<h3>Professional templates</h3>
+<p>Clean modern resume layouts designed for recruiters.</p>
+</div>
 
-  <footer>
-    <div class="container">
-      <p><strong>MyResumeMakerAI</strong> — AI resume builder for ATS-friendly job applications.</p>
-      <p>Contact: <a href="mailto:support@myresumemakerai.com">support@myresumemakerai.com</a></p>
-      <p>© 2026 MyResumeMakerAI</p>
-    </div>
-  </footer>
+<div class="feature">
+<h3>Fast and simple</h3>
+<p>Create a polished resume in minutes instead of hours.</p>
+</div>
+</div>
+</section>
+
+<section class="section" id="how">
+<h2>How it works</h2>
+
+<ul>
+<li>1. Enter your experience and education.</li>
+<li>2. Let AI improve wording and structure.</li>
+<li>3. Download or export your finished resume.</li>
+</ul>
+</section>
+
+<section class="section">
+<h2>Used by job seekers worldwide</h2>
+<p>Students, graduates, and professionals use MyResumeMakerAI to quickly create job‑ready resumes.</p>
+</section>
+
+<section class="section" id="faq">
+<h2>FAQ</h2>
+
+<p><strong>Is the resume builder free?</strong><br>
+Yes. You can build and edit your resume for free.</p>
+
+<p><strong>Do the resumes work with ATS systems?</strong><br>
+Yes. The templates are designed to pass common applicant tracking systems.</p>
+
+<p><strong>Do I need design skills?</strong><br>
+No. The builder automatically formats your resume professionally.</p>
+
+</section>
+
+<section class="section">
+<h2>More resume resources</h2>
+
+<ul>
+<li><a href="/resume-examples.html">Resume examples</a></li>
+<li><a href="/resume-templates.html">Resume templates</a></li>
+<li><a href="/cover-letter-generator.html">AI cover letter generator</a></li>
+<li><a href="/resume-tips.html">Resume writing tips</a></li>
+</ul>
+
+</section>
+
+<footer>
+<p>© MyResumeMakerAI</p>
+</footer>
+
 </body>
 </html>
