@@ -1,122 +1,305 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Resume Builder | Build an ATS-Friendly Resume in Minutes</title>
-  <meta name="description" content="Build an ATS-friendly resume with AI. Improve wording, rewrite bullet points, and upload your existing resume to turn it into a polished professional template.">
-  <link rel="canonical" href="https://www.myresumemakerai.com/">
-  <meta property="og:title" content="AI Resume Builder | Build an ATS-Friendly Resume in Minutes">
-  <meta property="og:description" content="Create a clean, professional resume with AI guidance. Upload your old CV, improve bullet points, and export a polished resume faster.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.myresumemakerai.com/">
-  <meta name="twitter:card" content="summary_large_image">
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"SoftwareApplication",
-    "name":"MyResumeMakerAI",
-    "applicationCategory":"BusinessApplication",
-    "operatingSystem":"Web",
-    "url":"https://www.myresumemakerai.com/",
-    "description":"An AI resume builder that helps users create ATS-friendly resumes, improve bullet points, and upload an existing resume into a professional template.",
-    "offers": {
-      "@type":"Offer",
-      "price":"0",
-      "priceCurrency":"USD"
-    }
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"FAQPage",
-    "mainEntity":[
-      {"@type":"Question","name":"Is MyResumeMakerAI free to start?","acceptedAnswer":{"@type":"Answer","text":"Yes. You can start building and editing your resume for free."}},
-      {"@type":"Question","name":"Can I upload my existing resume?","acceptedAnswer":{"@type":"Answer","text":"Yes. You can upload your old resume or CV and let AI place the content into a cleaner, more professional template."}},
-      {"@type":"Question","name":"Are the resumes ATS-friendly?","acceptedAnswer":{"@type":"Answer","text":"Yes. The builder is designed to help create clean, readable resumes that work well with common applicant tracking systems."}},
-      {"@type":"Question","name":"When do I pay?","acceptedAnswer":{"@type":"Answer","text":"You can build and edit your resume for free. Pricing for premium export options is explained in the FAQ."}}
-    ]
-  }
-  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Resume Builder | ATS-Friendly Resume Maker with Old CV Upload</title>
+  <meta name="description" content="Create an ATS-friendly resume with AI. Upload your old CV, improve bullet points, and build a clean professional resume in minutes." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://www.myresumemakerai.com/" />
+  <meta property="og:title" content="AI Resume Builder | ATS-Friendly Resume Maker" />
+  <meta property="og:description" content="Upload your old CV, improve it with AI, and generate a clean professional resume in minutes." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.myresumemakerai.com/" />
+  <meta property="og:image" content="https://www.myresumemakerai.com/cv_template_image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AI Resume Builder | ATS-Friendly Resume Maker" />
+  <meta name="twitter:description" content="Build a professional ATS-friendly resume with AI and upload your old CV to get started faster." />
   <style>
-    :root{
-      --bg:#f6f7fb;
-      --text:#0f172a;
-      --muted:#475569;
-      --line:#dde3ee;
-      --card:#ffffff;
-      --soft:#eef2f8;
-      --accent:#0f172a;
+    :root {
+      --bg: #f5f7fb;
+      --surface: #ffffff;
+      --text: #0d1733;
+      --muted: #5b6880;
+      --line: #d9e0ea;
+      --primary: #0d1733;
+      --primary-hover: #162347;
+      --pill: #f8fafc;
+      --shadow: 0 14px 40px rgba(13, 23, 51, 0.08);
+      --radius: 24px;
+      --max: 1200px;
     }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;font-family:Inter,Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);line-height:1.55}
-    a{color:inherit}
-    .container{width:min(1180px,92%);margin:0 auto}
-    header{position:sticky;top:0;background:rgba(246,247,251,.9);backdrop-filter:blur(10px);border-bottom:1px solid rgba(221,227,238,.7);z-index:20}
-    .nav{display:flex;align-items:center;justify-content:space-between;padding:20px 0;gap:20px}
-    .brand{font-weight:800;font-size:1.7rem;text-decoration:none}
-    .nav-links{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
-    .nav-links a{text-decoration:none;color:#334155}
-    .button{display:inline-flex;align-items:center;justify-content:center;padding:15px 24px;border-radius:16px;font-weight:700;text-decoration:none;border:1px solid var(--line)}
-    .button.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
-    .button.secondary{background:#fff;color:var(--text)}
-    .hero{padding:54px 0 26px}
-    .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
-    .eyebrow{display:inline-block;padding:10px 16px;border:1px solid var(--line);background:#fff;border-radius:999px;color:#334155;margin-bottom:22px}
-    h1{font-size:clamp(2.8rem,6vw,5.2rem);line-height:.98;letter-spacing:-.04em;margin:0 0 22px}
-    .lead{font-size:1.28rem;color:var(--muted);max-width:700px;margin:0 0 26px}
-    .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:18px}
-    .microcopy{color:#64748b;font-size:1.02rem;margin:0}
-    .proof-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
-    .proof{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px}
-    .proof strong{display:block;font-size:1.25rem;margin-bottom:4px}
-    .preview{background:#f3f3f2;border:1px solid var(--line);border-radius:28px;padding:22px;box-shadow:0 12px 32px rgba(15,23,42,.05)}
-    .preview img{display:block;width:100%;height:auto;border-radius:18px;background:#fff}
-    section{padding:34px 0}
-    h2{font-size:clamp(2rem,3vw,2.8rem);margin:0 0 12px;letter-spacing:-.03em}
-    .section-intro{max-width:760px;color:var(--muted);font-size:1.08rem;margin:0 0 28px}
-    .grid-3,.grid-4{display:grid;gap:18px}
-    .grid-3{grid-template-columns:repeat(3,1fr)}
-    .grid-4{grid-template-columns:repeat(4,1fr)}
-    .card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:24px}
-    .card h3{margin:0 0 10px;font-size:1.15rem}
-    .card p{margin:0;color:var(--muted)}
-    .steps .card{position:relative;padding-top:56px}
-    .step-number{position:absolute;top:18px;left:20px;width:28px;height:28px;border-radius:999px;background:var(--soft);display:flex;align-items:center;justify-content:center;font-size:.95rem;font-weight:700}
-    .highlight{background:#fff;border:1px solid var(--line);border-radius:28px;padding:28px}
-    .highlight-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center}
-    .bullets{padding:0;margin:18px 0 0;list-style:none}
-    .bullets li{margin:0 0 12px;padding-left:28px;position:relative;color:var(--muted)}
-    .bullets li::before{content:"•";position:absolute;left:8px;color:#0f172a;font-weight:700}
-    .link-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-    .link-card{text-decoration:none}
-    .link-card small{display:block;color:#64748b;margin-bottom:8px}
-    .faq-item{padding:22px 0;border-top:1px solid var(--line)}
-    .faq-item:last-child{border-bottom:1px solid var(--line)}
-    .faq-item h3{margin:0 0 8px;font-size:1.08rem}
-    .faq-item p{margin:0;color:var(--muted)}
-    footer{padding:38px 0 70px;color:#64748b}
-    .footer-links{display:flex;gap:16px;flex-wrap:wrap;margin-top:10px}
-    @media (max-width: 980px){
-      .hero-grid,.highlight-grid,.grid-4,.grid-3,.link-grid{grid-template-columns:1fr}
-      .proof-row{grid-template-columns:1fr}
-      .nav{align-items:flex-start;flex-direction:column}
-      .nav-links{gap:14px}
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(calc(100% - 32px), var(--max)); margin: 0 auto; }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(10px);
+      background: rgba(245,247,251,0.88);
+      border-bottom: 1px solid rgba(217,224,234,0.85);
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 18px 0;
+    }
+    .brand {
+      font-weight: 800;
+      font-size: 1.1rem;
+      letter-spacing: -0.03em;
+    }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+      color: #42506a;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 54px;
+      padding: 0 28px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+    .btn-primary:hover { background: var(--primary-hover); }
+    .hero {
+      padding: 56px 0 38px;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 56px;
+      align-items: center;
+    }
+    .eyebrow {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      padding: 10px 16px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--pill);
+      color: #42506a;
+      font-size: 0.98rem;
+      margin-bottom: 18px;
+    }
+    h1 {
+      margin: 0 0 18px;
+      font-size: clamp(3.3rem, 7vw, 5.3rem);
+      line-height: 0.94;
+      letter-spacing: -0.06em;
+      max-width: 10ch;
+    }
+    .lead {
+      margin: 0 0 24px;
+      max-width: 630px;
+      font-size: 1.18rem;
+      color: var(--muted);
+    }
+    .cta-row {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+    .subcopy {
+      color: var(--muted);
+      font-size: 1rem;
+      margin: 0;
+    }
+    .preview-card {
+      background: rgba(255,255,255,0.72);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+    .preview-frame {
+      background: #fff;
+      border: 1px solid #eef2f7;
+      border-radius: 20px;
+      overflow: hidden;
+      aspect-ratio: 0.82;
+    }
+    .preview-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+    }
+    .social-proof {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 26px;
+    }
+    .proof-card {
+      border: 1px solid var(--line);
+      background: var(--surface);
+      border-radius: 20px;
+      padding: 18px;
+      text-align: center;
+    }
+    .proof-card strong {
+      display: block;
+      font-size: 1.1rem;
+      margin-bottom: 4px;
+    }
+    section { padding: 26px 0; }
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      margin: 0 0 14px;
+    }
+    .section-lead {
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 1.08rem;
+      margin: 0 0 26px;
+    }
+    .features, .steps, .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 24px;
+      box-shadow: 0 8px 24px rgba(13, 23, 51, 0.04);
+    }
+    .card h3 { margin: 0 0 10px; font-size: 1.12rem; }
+    .card p { margin: 0; color: var(--muted); }
+    .upload-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: center;
+    }
+    .upload-list {
+      margin: 18px 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      color: var(--muted);
+    }
+    .upload-list li::before {
+      content: "✓";
+      color: var(--primary);
+      font-weight: 800;
+      margin-right: 10px;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .gallery img {
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: #fff;
+      box-shadow: 0 8px 24px rgba(13, 23, 51, 0.04);
+      aspect-ratio: 1.18;
+      object-fit: cover;
+      object-position: top center;
+    }
+    .faq-item h3 { margin: 0 0 8px; font-size: 1.06rem; }
+    .faq-item p { margin: 0; color: var(--muted); }
+    .seo-copy {
+      max-width: 850px;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+    .final-cta {
+      text-align: center;
+      padding: 36px;
+      background: linear-gradient(180deg, #ffffff, #f8fafc);
+    }
+    footer {
+      padding: 38px 0 54px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.96rem;
+    }
+    @media (max-width: 980px) {
+      .hero-grid,
+      .upload-split,
+      .features,
+      .steps,
+      .faq-grid,
+      .gallery,
+      .social-proof {
+        grid-template-columns: 1fr;
+      }
+      h1 { max-width: 12ch; }
+      .nav { align-items: flex-start; }
+      .nav-links { gap: 16px; }
+    }
+    @media (max-width: 720px) {
+      .nav { flex-direction: column; }
+      .nav-links { justify-content: flex-start; }
+      .hero { padding-top: 28px; }
+      h1 { font-size: clamp(2.8rem, 15vw, 4.1rem); }
+      .lead { font-size: 1.05rem; }
+      .btn { width: 100%; }
+      .cta-row { flex-direction: column; }
     }
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "MyResumeMakerAI",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "url": "https://www.myresumemakerai.com/",
+    "description": "AI resume builder that helps users upload an old CV, improve wording, and create an ATS-friendly professional resume.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
 </head>
 <body>
   <header>
     <div class="container nav">
       <a class="brand" href="/">MyResumeMakerAI</a>
-      <nav class="nav-links" aria-label="Primary">
+      <nav class="nav-links">
         <a href="#how-it-works">How it works</a>
         <a href="#features">Features</a>
         <a href="#upload-old-resume">Upload resume</a>
         <a href="#faq">FAQ</a>
-        <a class="button secondary" href="/app">Open app</a>
+        <a class="btn" href="https://app.myresumemakerai.com/">Open app</a>
       </nav>
     </div>
   </header>
@@ -126,196 +309,129 @@
       <div class="container hero-grid">
         <div>
           <div class="eyebrow">ATS-friendly • AI resume builder • Upload your old CV</div>
-          <h1>Create an ATS-friendly resume with AI in minutes</h1>
+          <h1>Create an ATS-friendly resume with AI</h1>
           <p class="lead">Build a clean, professional resume with AI guidance. Improve bullet points, sharpen wording, and upload your existing resume to turn it into a polished template faster.</p>
           <div class="cta-row">
-            <a class="button primary" href="/app">Start building for free</a>
-            <a class="button secondary" href="#template-preview">See template preview</a>
+            <a class="btn btn-primary" href="https://app.myresumemakerai.com/">Start building for free</a>
+            <a class="btn" href="#preview">See template preview</a>
           </div>
-          <p class="microcopy">No credit card required. Build and edit your resume for free.</p>
+          <p class="subcopy">No credit card required. Build and edit your resume for free.</p>
 
-          <div class="proof-row" aria-label="Highlights">
-            <div class="proof"><strong>Fast</strong><span>Turn rough experience notes into polished resume content quickly.</span></div>
-            <div class="proof"><strong>Clear</strong><span>Improve wording, readability, and structure for recruiters.</span></div>
-            <div class="proof"><strong>Flexible</strong><span>Start from scratch or upload an existing resume and refine it.</span></div>
+          <div class="social-proof">
+            <div class="proof-card"><strong>ATS-friendly</strong><span>Built for clean parsing</span></div>
+            <div class="proof-card"><strong>Upload old CV</strong><span>Start from what you already have</span></div>
+            <div class="proof-card"><strong>Fast editing</strong><span>Improve wording in minutes</span></div>
           </div>
         </div>
-        <div id="template-preview" class="preview">
-          <img src="resume-preview.png" alt="Preview of a professional resume template generated by MyResumeMakerAI">
+
+        <div class="preview-card" id="preview">
+          <div class="preview-frame">
+            <img src="cv_template_image.png" alt="Preview of a professional resume template generated by MyResumeMakerAI" />
+          </div>
         </div>
       </div>
     </section>
 
     <section id="features">
       <div class="container">
-        <h2>Why job seekers use MyResumeMakerAI</h2>
-        <p class="section-intro">The strongest resume tools do three things well: they help users start fast, they improve weak writing, and they make it easy to turn old resume content into a cleaner format. Your product already has the right foundation, so the page should sell that clearly.</p>
-        <div class="grid-4">
-          <div class="card">
-            <h3>ATS-friendly formatting</h3>
-            <p>Use a clean layout designed to stay readable for both recruiters and applicant tracking systems.</p>
-          </div>
-          <div class="card">
-            <h3>AI bullet point rewriting</h3>
-            <p>Upgrade weak bullet points into clearer, more results-focused resume language.</p>
-          </div>
-          <div class="card">
-            <h3>Upload your old resume</h3>
-            <p>Bring your current CV into the builder and let AI place the content into a stronger template.</p>
-          </div>
-          <div class="card">
-            <h3>Fast editing flow</h3>
-            <p>Make quick improvements without fighting formatting, layout, or wording from scratch.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="how-it-works" class="steps">
-      <div class="container">
-        <h2>How it works</h2>
-        <p class="section-intro">This is the flow people expect from a professional AI resume builder landing page: start quickly, improve content, and leave with a better resume than the one they had before.</p>
-        <div class="grid-3">
-          <div class="card">
-            <div class="step-number">1</div>
-            <h3>Add your information</h3>
-            <p>Start from scratch or paste in your current experience, education, and skills.</p>
-          </div>
-          <div class="card">
-            <div class="step-number">2</div>
-            <h3>Let AI improve the writing</h3>
-            <p>Rewrite bullet points, clean up summaries, and sharpen wording for stronger applications.</p>
-          </div>
-          <div class="card">
-            <div class="step-number">3</div>
-            <h3>Choose a polished template</h3>
-            <p>Turn your content into a professional resume layout that is ready for applications.</p>
-          </div>
+        <h2 class="section-title">Everything you need to build a clean resume</h2>
+        <p class="section-lead">MyResumeMakerAI is designed for people who want a simple, professional resume without wasting time on complicated formatting or weak wording.</p>
+        <div class="features">
+          <article class="card">
+            <h3>ATS-friendly structure</h3>
+            <p>Use a layout recruiters and applicant tracking systems can read clearly without unnecessary design clutter.</p>
+          </article>
+          <article class="card">
+            <h3>AI editing help</h3>
+            <p>Improve bullet points, tighten summaries, and make your experience sound clearer and more professional.</p>
+          </article>
+          <article class="card">
+            <h3>One clean template</h3>
+            <p>Focus on quality instead of choosing between too many styles. Keep the experience simple and polished.</p>
+          </article>
         </div>
       </div>
     </section>
 
     <section id="upload-old-resume">
-      <div class="container highlight">
-        <div class="highlight-grid">
-          <div>
-            <h2>Already have a resume? Upload it and improve it with AI</h2>
-            <p class="section-intro">This should be one of your strongest selling points because it removes friction. Many users already have an old CV but want help making it cleaner, sharper, and more professional.</p>
-            <ul class="bullets">
-              <li>Upload your existing resume instead of starting from a blank page.</li>
-              <li>Let AI reorganize and improve the content inside a better template.</li>
-              <li>Fix weak wording, vague bullet points, and cluttered formatting faster.</li>
-            </ul>
-            <div class="cta-row">
-              <a class="button primary" href="/app">Upload your resume</a>
-              <a class="button secondary" href="/upload-resume.html">Learn more</a>
-            </div>
-          </div>
-          <div class="card">
-            <h3>Why this matters</h3>
-            <p>Many resume sites focus only on generating a brand new resume. Promoting your upload-and-improve workflow makes your product more useful to real job seekers, especially students, graduates, and professionals updating an old CV.</p>
-          </div>
+      <div class="container upload-split">
+        <div>
+          <h2 class="section-title">Upload your old resume and improve it with AI</h2>
+          <p class="section-lead">This is one of your strongest features. Instead of starting from a blank page, users can upload an existing CV and let AI help turn it into a better structured, more professional resume.</p>
+          <ul class="upload-list">
+            <li>Reuse the experience and education you already wrote</li>
+            <li>Improve phrasing, bullet points, and clarity faster</li>
+            <li>Move old content into a cleaner, ATS-friendly template</li>
+            <li>Save time when updating an outdated resume</li>
+          </ul>
+        </div>
+        <div class="gallery">
+          <img src="CV_editor.png" alt="AI resume editor interface in MyResumeMakerAI" />
+          <img src="CV_table.png" alt="Resume data table editor in MyResumeMakerAI" />
+          <img src="ATS_friendly.png" alt="ATS-friendly resume layout example" />
+        </div>
+      </div>
+    </section>
+
+    <section id="how-it-works">
+      <div class="container">
+        <h2 class="section-title">How it works</h2>
+        <p class="section-lead">A simple flow that helps users go from an old CV or rough draft to a polished resume they can refine in the app.</p>
+        <div class="steps">
+          <article class="card">
+            <h3>1. Add your content</h3>
+            <p>Start from scratch or upload an old resume to pull in your existing experience, education, and skills.</p>
+          </article>
+          <article class="card">
+            <h3>2. Improve it with AI</h3>
+            <p>Refine bullet points, clean up wording, and make the content stronger for internships, graduate roles, and full-time applications.</p>
+          </article>
+          <article class="card">
+            <h3>3. Export when ready</h3>
+            <p>Build and edit for free, then use export access when you are ready to download and use the final version.</p>
+          </article>
         </div>
       </div>
     </section>
 
     <section>
       <div class="container">
-        <h2>Helpful pages that bring more search traffic</h2>
-        <p class="section-intro">One of the biggest reasons resume tools stay stuck at low traffic is that they only have a homepage. Adding useful content pages gives you more keywords, more internal links, and more chances to rank in Google.</p>
-        <div class="link-grid">
-          <a class="card link-card" href="/resume-examples.html">
-            <small>SEO page</small>
-            <h3>Resume examples</h3>
-            <p>Show users what strong resumes look like across common job types and experience levels.</p>
-          </a>
-          <a class="card link-card" href="/resume-templates.html">
-            <small>SEO page</small>
-            <h3>Resume templates</h3>
-            <p>Explain what makes a template ATS-friendly and help users choose the right style.</p>
-          </a>
-          <a class="card link-card" href="/resume-tips.html">
-            <small>SEO page</small>
-            <h3>Resume tips</h3>
-            <p>Publish evergreen advice that targets informational searches job seekers already make.</p>
-          </a>
-          <a class="card link-card" href="/upload-resume.html">
-            <small>Feature page</small>
-            <h3>Upload old resume</h3>
-            <p>Dedicated page for one of your strongest conversion features.</p>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="container">
-        <h2>Should you add user reviews?</h2>
-        <p class="section-intro">Yes, but only when they are real. Reviews help a lot with trust and conversion, especially for a product in the jobs space. Just do not add fake testimonials. That usually looks obvious and hurts credibility.</p>
-        <div class="grid-3">
-          <div class="card">
-            <h3>Add reviews after your first users</h3>
-            <p>Once you have 10 to 20 real users, ask for one-sentence feedback and permission to display it on the landing page.</p>
-          </div>
-          <div class="card">
-            <h3>Best placement</h3>
-            <p>Put real reviews between the feature section and the FAQ, or just above the final call to action.</p>
-          </div>
-          <div class="card">
-            <h3>Best format</h3>
-            <p>Use a short quote, first name or initials, and role such as student, graduate, or marketing specialist.</p>
-          </div>
-        </div>
+        <h2 class="section-title">Why use an AI resume builder?</h2>
+        <p class="seo-copy">A good resume builder should do more than just fill a template. It should help users present their experience clearly, remove weak wording, and create a resume that is easier for recruiters and applicant tracking systems to read. MyResumeMakerAI focuses on a clean ATS-friendly structure, simple editing, and fast improvement with AI. It is useful for students, graduates, professionals changing jobs, and anyone who already has an old CV they want to modernize without rewriting everything from scratch.</p>
       </div>
     </section>
 
     <section id="faq">
       <div class="container">
-        <h2>FAQ</h2>
-        <div class="faq-item">
-          <h3>Is MyResumeMakerAI free to start?</h3>
-          <p>Yes. You can build and edit your resume for free.</p>
-        </div>
-        <div class="faq-item">
-          <h3>Can I upload my existing resume?</h3>
-          <p>Yes. You can upload your old resume or CV and use AI to place the content into a cleaner, more professional template.</p>
-        </div>
-        <div class="faq-item">
-          <h3>Are the resumes ATS-friendly?</h3>
-          <p>Yes. The templates are designed to be clean, readable, and compatible with common applicant tracking systems.</p>
-        </div>
-        <div class="faq-item">
-          <h3>When do I pay?</h3>
-          <p>You can build and edit your resume for free. Premium export pricing can be shown here instead of near the main call to action, which keeps the top of the page cleaner.</p>
+        <h2 class="section-title">FAQ</h2>
+        <div class="faq-grid">
+          <article class="card faq-item">
+            <h3>Is it free to start?</h3>
+            <p>Yes. You can build and edit your resume for free. You only pay if you choose to unlock export.</p>
+          </article>
+          <article class="card faq-item">
+            <h3>Can I upload my old CV?</h3>
+            <p>Yes. You can upload an existing resume or CV and use AI to improve and place the content into the template faster.</p>
+          </article>
+          <article class="card faq-item">
+            <h3>Does it work for ATS?</h3>
+            <p>It is designed around a clean structure that is easier for applicant tracking systems to parse than heavily styled resumes.</p>
+          </article>
         </div>
       </div>
     </section>
 
     <section>
-      <div class="container highlight">
-        <div class="highlight-grid">
-          <div>
-            <h2>Build faster. Improve smarter. Apply with more confidence.</h2>
-            <p class="section-intro">A strong landing page should keep the last call to action simple. Remind visitors what they get, then send them into the product.</p>
-          </div>
-          <div class="cta-row" style="justify-content:flex-start;align-items:center;">
-            <a class="button primary" href="/app">Start building for free</a>
-          </div>
-        </div>
+      <div class="container card final-cta">
+        <h2 class="section-title">Build your resume faster with AI</h2>
+        <p class="section-lead">Start free, upload your old CV if you already have one, and refine your resume in a cleaner professional format.</p>
+        <a class="btn btn-primary" href="https://app.myresumemakerai.com/">Open the app</a>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="container">
-      <div><strong>MyResumeMakerAI</strong></div>
-      <div class="footer-links">
-        <a href="/resume-examples.html">Resume examples</a>
-        <a href="/resume-templates.html">Resume templates</a>
-        <a href="/resume-tips.html">Resume tips</a>
-        <a href="/upload-resume.html">Upload resume</a>
-      </div>
-    </div>
+    <div class="container">© 2026 MyResumeMakerAI</div>
   </footer>
 </body>
 </html>

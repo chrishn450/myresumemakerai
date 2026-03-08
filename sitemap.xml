@@ -2,17 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.myresumemakerai.com/</loc>
-  </url>
-  <url>
-    <loc>https://www.myresumemakerai.com/resume-examples.html</loc>
-  </url>
-  <url>
-    <loc>https://www.myresumemakerai.com/resume-templates.html</loc>
-  </url>
-  <url>
-    <loc>https://www.myresumemakerai.com/resume-tips.html</loc>
-  </url>
-  <url>
-    <loc>https://www.myresumemakerai.com/upload-resume.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
   </url>
 </urlset>
