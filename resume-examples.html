@@ -8,49 +8,41 @@
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://www.myresumemakerai.com/resume-examples.html" />
   <style>
-    :root { --text:#111827; --muted:#5b6474; --line:#e5e7eb; --primary:#2563eb; --shadow:0 16px 40px rgba(15,23,42,.08); }
-    * { box-sizing:border-box; }
-    body { margin:0; font-family:Inter,Arial,sans-serif; background:#fff; color:var(--text); line-height:1.65; }
-    a { color:var(--primary); text-decoration:none; } a:hover { text-decoration:underline; }
-    .wrap { width:min(1000px, calc(100% - 2rem)); margin:0 auto; }
-    header, footer { border-bottom:1px solid var(--line); }
-    .nav { display:flex; justify-content:space-between; align-items:center; gap:1rem; padding:1rem 0; flex-wrap:wrap; }
-    .links { display:flex; gap:1rem; flex-wrap:wrap; }
-    .links a { color:var(--text); font-weight:600; }
-    .hero { padding:3.2rem 0 2rem; background:linear-gradient(180deg,#fff 0%,#f8fbff 100%); }
-    h1,h2 { line-height:1.18; margin-top:0; }
-    h1 { font-size:clamp(2rem,4vw,3.2rem); }
-    .lead, p, li { color:var(--muted); }
-    .card { background:#fff; border:1px solid var(--line); border-radius:20px; padding:1.25rem; box-shadow:var(--shadow); margin-bottom:1rem; }
-    .btn { display:inline-block; background:var(--primary); color:#fff !important; padding:.88rem 1.12rem; border-radius:12px; font-weight:700; }
-    footer { border-top:1px solid var(--line); border-bottom:0; padding:2rem 0 3rem; margin-top:3rem; }
+    :root{--bg:#fff;--soft:#f7f9fc;--text:#111827;--muted:#5b6474;--line:#e5e7eb;--primary:#2563eb;--shadow:0 16px 36px rgba(15,23,42,.08)}
+    *{box-sizing:border-box} body{margin:0;font-family:Inter,Arial,sans-serif;background:#fff;color:var(--text);line-height:1.65}
+    a{color:var(--primary);text-decoration:none} a:hover{text-decoration:underline}
+    .wrap{width:min(980px,calc(100% - 2rem));margin:0 auto}
+    header,footer{border-bottom:1px solid var(--line);background:#fff} header{position:sticky;top:0;background:rgba(255,255,255,.92);backdrop-filter:blur(10px)}
+    .nav{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;padding:1rem 0}.links{display:flex;gap:1rem;flex-wrap:wrap}.links a{color:var(--text);font-weight:600}
+    .hero{padding:3.8rem 0 2rem;background:linear-gradient(180deg,#fff 0%,#f8fbff 100%)}
+    .cards{display:grid;gap:1rem}.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:1.25rem;box-shadow:var(--shadow)}
+    h1,h2{line-height:1.15;margin-top:0} h1{font-size:clamp(2.1rem,4vw,3.3rem)} p,li{color:var(--muted)}
+    .btn{display:inline-block;background:var(--primary);color:#fff!important;padding:.9rem 1.1rem;border-radius:14px;font-weight:700}
+    footer{border-top:1px solid var(--line);border-bottom:0;padding:2rem 0 3rem;margin-top:3rem}
   </style>
 </head>
 <body>
   <header>
     <div class="wrap nav">
-      <a href="index.html"><strong>MyResumeMakerAI</strong></a>
+      <a href="/"><strong>MyResumeMakerAI</strong></a>
       <nav class="links">
-        <a href="index.html">Home</a>
+        <a href="/">Home</a>
         <a href="resume-templates.html">Resume Template</a>
         <a href="resume-tips.html">Resume Tips</a>
+        <a href="upload-resume.html">Upload Resume</a>
       </nav>
     </div>
   </header>
 
-  <main>
-    <section class="hero">
-      <div class="wrap">
-        <h1>Resume examples</h1>
-        <p class="lead">
-          These examples show the type of content you can write inside the ATS-friendly
-          template used by MyResumeMakerAI. One template can still support different
-          roles and experience levels.
-        </p>
-      </div>
-    </section>
+  <main class="wrap hero">
+    <h1>Resume examples</h1>
+    <p>
+      These examples show the type of content you can write inside the ATS-friendly
+      template used by MyResumeMakerAI. One template can still support different roles
+      and experience levels.
+    </p>
 
-    <section class="wrap" style="padding-top:2rem;">
+    <div class="cards">
       <div class="card">
         <h2>Student resume example</h2>
         <p>Highlight coursework, projects, internships, part-time work, volunteering, and transferable skills. Keep the format simple and specific.</p>
@@ -72,12 +64,12 @@
         <p>Use these examples as a starting point, then open MyResumeMakerAI to rewrite your current content into a cleaner final resume.</p>
         <a class="btn" href="https://app.myresumemakerai.com/">Build your resume</a>
       </div>
-    </section>
+    </div>
   </main>
 
   <footer>
     <div class="wrap">
-      <a href="index.html">Home</a> ·
+      <a href="/">Home</a> ·
       <a href="resume-templates.html">Resume Template</a> ·
       <a href="resume-tips.html">Resume Tips</a>
     </div>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV Builder | MyResumeMakerAI</title>
+<style>
+  :root{--bg:#f6f8fb;--card:#fff;--text:#111827;--muted:#5b6474;--line:#e5e7eb;--primary:#2563eb;--shadow:0 20px 40px rgba(15,23,42,.08)}
+  *{box-sizing:border-box}
+  body{font-family:Inter,Arial,sans-serif;margin:0;background:var(--bg);color:var(--text)}
+  .container{max-width:980px;margin:auto;padding:56px 20px}
+  h1{font-size:clamp(2rem,4vw,3rem);margin-bottom:10px}
+  .subtitle{color:var(--muted);margin-bottom:34px}
+  .card-container{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .card{background:var(--card);padding:28px;border-radius:22px;border:1px solid var(--line);box-shadow:var(--shadow)}
+  .card h2{margin-top:0;line-height:1.15}
+  .card p{color:var(--muted)}
+  .file-input{margin:12px 0 16px}
+  .btn{background:var(--primary);color:#fff;border:none;padding:12px 18px;border-radius:12px;cursor:pointer;font-weight:700}
+  .btn.secondary{background:#fff;color:var(--text);border:1px solid var(--line)}
+  @media(max-width:760px){.card-container{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+  <div class="container">
+    <h1>CV Builder</h1>
+    <p class="subtitle">Choose how you want to start.</p>
+    <div class="card-container">
+      <div class="card">
+        <h2>Upload your old CV (PDF)</h2>
+        <p>We'll extract the text and let AI prefill the template for you.</p>
+        <input type="file" class="file-input">
+        <br>
+        <button class="btn">Upload &amp; Prefill</button>
+      </div>
+      <div class="card">
+        <h2>Build from scratch</h2>
+        <p>Start with a blank template and fill it in yourself.</p>
+        <button class="btn secondary" onclick="location.href='/template'">Go to template</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
