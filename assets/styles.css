@@ -147,10 +147,10 @@ a:hover { text-decoration: underline; }
 .hero-image-stack {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 24px;
+  gap: 20px;
   align-items: stretch;
   width: 100%;
-  max-width: 560px;
+  max-width: 500px;
 }
 
 .eyebrow {
@@ -233,7 +233,7 @@ h3 {
   border: 1px solid var(--line);
   box-shadow: 0 16px 40px rgba(15, 23, 66, 0.08);
   padding: 0;
-  aspect-ratio: 1.45 / 1;
+  aspect-ratio: 1.52 / 1;
 }
 
 .hero-panel img {
@@ -390,8 +390,8 @@ h3 {
   }
 
   .hero-image-stack {
-    max-width: 620px;
-    gap: 28px;
+    max-width: 540px;
+    gap: 22px;
   }
 }
 
