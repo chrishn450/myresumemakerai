@@ -123,8 +123,8 @@ a:hover { text-decoration: underline; }
 }
 
 .hero-grid {
-  grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
-  gap: 56px;
+  grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
+  gap: 70px;
   align-items: center;
 }
 
@@ -145,11 +145,11 @@ a:hover { text-decoration: underline; }
 
 .hero-image-stack {
   display: grid;
-  grid-template-columns: minmax(0, 1.18fr) minmax(0, 0.98fr);
-  gap: 28px;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: 32px;
   align-items: center;
   width: 100%;
-  max-width: 760px;
+  max-width: 900px;
 }
 
 .eyebrow {
@@ -185,22 +185,6 @@ h2 {
 h3 {
   font-size: 1.15rem;
   margin-bottom: 0.45rem;
-}
-
-.page-title {
-  font-size: clamp(2.1rem, 3.4vw, 3.2rem);
-  margin-bottom: 0.8rem;
-  letter-spacing: -0.035em;
-}
-
-.section-title {
-  font-size: clamp(1.45rem, 2.1vw, 2rem);
-  margin-bottom: 0.75rem;
-}
-
-.mini-title {
-  font-size: clamp(1.2rem, 1.6vw, 1.45rem);
-  margin-bottom: 0.6rem;
 }
 
 .lead {
@@ -259,11 +243,11 @@ h3 {
 }
 
 .hero-panel-main {
-  transform: translateY(-12px);
+  transform: translateY(-18px);
 }
 
 .hero-panel-secondary {
-  transform: translateY(26px);
+  transform: translateY(34px);
 }
 
 .card {
@@ -306,15 +290,9 @@ h3 {
   padding: 20px;
 }
 
-.resource-list,
-.bullet-list {
+.resource-list {
   margin: 0;
   padding-left: 1.15rem;
-}
-
-.bullet-list li + li,
-.resource-list li + li {
-  margin-top: 0.45rem;
 }
 
 .faq details {
@@ -344,7 +322,7 @@ h3 {
 .faq details[open] summary::after { content: "−"; }
 
 .page-hero {
-  padding: 40px 0 14px;
+  padding: 46px 0 18px;
 }
 
 .page-wrap {
@@ -354,48 +332,22 @@ h3 {
 
 .back-link {
   display: inline-block;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
   font-weight: 700;
 }
 
-.page-intro {
-  max-width: 940px;
+/* Smaller headings on subpages */
+.page-wrap h1 {
+  font-size: clamp(2rem, 3.2vw, 2.6rem);
 }
 
-.split-card {
-  display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-  gap: 20px;
-  align-items: stretch;
+.page-wrap h2 {
+  font-size: 1.45rem;
+  letter-spacing: -0.02em;
 }
 
-.template-preview {
-  min-height: 100%;
-}
-
-.example-grid,
-.tips-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 20px;
-}
-
-.example-card,
-.tip-card {
-  height: 100%;
-}
-
-.example-meta {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 7px 11px;
-  margin-bottom: 14px;
-  border-radius: 999px;
-  background: #eff6ff;
-  color: var(--primary-dark);
-  font-weight: 700;
-  font-size: 0.85rem;
+.page-wrap h3 {
+  font-size: 1.1rem;
 }
 
 .cta {
@@ -433,24 +385,14 @@ h3 {
 
 @media (min-width: 1200px) {
   .hero-image-stack {
-    max-width: 860px;
-    gap: 32px;
-  }
-
-  .hero-grid {
-    grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
+    max-width: 980px;
+    gap: 36px;
   }
 }
 
 @media (max-width: 1024px) {
-  .hero-grid,
-  .split-card,
-  .example-grid,
-  .tips-grid {
-    grid-template-columns: 1fr;
-  }
-
   .hero-grid {
+    grid-template-columns: 1fr;
     gap: 36px;
   }
 
@@ -460,7 +402,7 @@ h3 {
   }
 
   .hero-image-stack {
-    max-width: 680px;
+    max-width: 760px;
   }
 
   .hero-panel-main,
@@ -525,15 +467,21 @@ h3 {
     justify-content: center;
   }
 
-  .hero-panel,
-  .template-preview {
+  .hero-panel {
     border-radius: 22px;
     padding: 12px;
   }
 
-  .hero-panel img,
-  .template-preview img {
+  .hero-panel img {
     border-radius: 14px;
+  }
+
+  .page-wrap h1 {
+    font-size: 1.95rem;
+  }
+
+  .page-wrap h2 {
+    font-size: 1.35rem;
   }
 }
 
@@ -588,15 +536,19 @@ h3 {
     font-size: 1.55rem;
   }
 
-  .page-title {
-    font-size: 2rem;
-  }
-
-  .section-title {
-    font-size: 1.35rem;
-  }
-
   .lead {
+    font-size: 1rem;
+  }
+
+  .page-wrap h1 {
+    font-size: 1.8rem;
+  }
+
+  .page-wrap h2 {
+    font-size: 1.25rem;
+  }
+
+  .page-wrap h3 {
     font-size: 1rem;
   }
 }
